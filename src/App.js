@@ -1,24 +1,14 @@
 import React from "react";
 import './App.css';
 import axios from "axios";
+import WeatherSearch from "/.WeatherSearch.js";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Weather Search App</h1>
-        <WeatherSearch />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+      <h1>Weather Search</h1>
+      <WeatherSearch />
 
-export default App;
+    </div>
+  )
+}
