@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import axios from "axios";
 
+import "./App.css";
+
 export default function WeatherSearch() {
     const [city, setCity] = useState("");
     const [loaded, setLoaded] = useState(false);
@@ -39,17 +41,42 @@ export default function WeatherSearch() {
   
     if (loaded) {
       return (
-        <div>
+        <div className="WeatherSeach">
+            <div className="City">
+                {updateCity}
+            </div>
+            <div className="temperature">
+                {Math.round(weather.temperature)}ºC
+            </div>
           {form}
-          <ul>
-            <li>Temperature: {Math.round(weather.temperature)}°C</li>
-            <li>Description: {weather.description}</li>
-            <li>Humidity: {weather.humidity}%</li>
-            <li>Wind: {weather.wind}km/h</li>
-            <li>
-              <img src={weather.icon} alt={weather.description} />
-            </li>
-          </ul>
+          <div className="col-6">
+              <ul>
+                <li>Description: {weather.description}</li>
+                <li>Humidity: {weather.humidity}%</li>
+                <li>Wind: {weather.wind}km/h</li>
+                <li>
+                    <img src={weather.icon} alt={weather.description} />
+                </li>
+
+              </ul>
+            </div>
+            <div class="overview">
+            
+            <ul>
+              <li>Last updated: <span id="date"></span></li>
+              <li id="description"></li>
+            </ul>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="clearfix weather-temperature">
+                <img src="" alt="Clear" id="icon" class="float-left" />
+                <div class="float-left">
+                  <strong id="temperature"></strong
+                  ><span class="units"><a href="#" id="fahrenheit-link"> °F </a>| <a href="#" id="celsius-link">ºC</a> </span> 
+                </div>
+              </div>
+            </div>
         </div>
       );
     } else {
