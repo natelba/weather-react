@@ -1,27 +1,23 @@
-import React, {useState} from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-export default function CurrentLocation(response){
-    function searchLocation(position) {
-        let apiKey = "67530174dacc3fcebbae46692eea5dd9";
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-      
-        axios.get(apiUrl).then(displayWeatherCondition);
-      }
-    
-      function getCurrentLocation(event) {
-        event.preventDefault();
-        navigator.geolocation.getCurrentPosition(searchLocation);
-      }
-      let currentLocationButton = document.querySelector("#current-location-button");
-      currentLocationButton.addEventListener("click", getCurrentLocation);
-    
-    
-      search("New York");
-      return(
-          <div className="CurrentLocation">
-              <button class="btn btn-success w-20" id="current-location-button">
-                        Current
-                      </button>
-          </div>
-      );
+export default class CurrentLocation extends Component {
+  static propTypes = { refresh: PropTypes.func.isRequired };
+
+  _click(event) {
+    navigator.geolocation.getCurrentPosition(position => {
+      this.props.refresh(position.coords.latitude, position.coords.longitude);
+    });
+  }
+
+  render() {
+    return (
+      <button
+        className="float-left btn btn-success"
+        onClick={event => this._click(event)}
+      >
+        Current
+      </button>
+    );
+  }
 }
