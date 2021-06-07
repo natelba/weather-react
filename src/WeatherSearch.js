@@ -60,27 +60,25 @@ export default function WeatherSearch() {
 
               </ul>
             </div>
-            <div class="overview">
+            <div className="overview">
             
             <ul>
               <li>Last updated: <span id="date"></span></li>
               <li id="description"></li>
             </ul>
           </div>
-          <div class="row">
-            <div class="col-6">
-              <div class="clearfix weather-temperature">
+          <div className="row">
+            <div className="col-6">
+              <div className="clearfix weather-temperature">
                 <img src="" alt="Clear" id="icon" class="float-left" />
-                <div class="float-left">
+                <div className="float-left">
                   <strong id="temperature"></strong
-                  ><span class="units"><a href="#" id="fahrenheit-link"> °F </a>| <a href="#" id="celsius-link">ºC</a> </span> 
+                  ><span className="units"><a href="#" id="fahrenheit-link"> °F </a>| <a href="#" id="celsius-link">ºC</a> </span> 
                 </div>
               </div>
             </div>
         </div>
-      );
-    } else {
-      return form;
-    }
+      </div>
+    );
   }
-  
+}
