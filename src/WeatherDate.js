@@ -1,4 +1,4 @@
-export default class Date {
+export default class WeatherDate {
     constructor(date) {
       this.date = date;
     }
